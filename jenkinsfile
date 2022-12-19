@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    stages {
+        stage("clone"){
+        steps{
+            git 'https://github.com/gangannagaridinesh/hello-world.git'
+        }
+    }
+    stage("build"){
+        steps{
+            sh "mvn clean install"
+        }
+    }
+    stage('Integration Testing'){
+steps{
+    sh 'mvn verify -DskipUnitTests'
+}
+}
+stage('Maven Build'){
+    steps{
+        sh 'mvn clean install'
+}
+}
+stage('Deploy'){
+    steps{
+        sshagent(['world_user']) {
+           sh  "scp  -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@13.230.96.62:/opt/apache-tomcat-9.0.70/webapps"
+        }           
+    } 
+}
+}
+}
