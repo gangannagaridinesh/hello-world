@@ -16,8 +16,8 @@
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
   </properties>
          <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.9</maven.compiler.source>
+    <maven.compiler.target>1.9</maven.compiler.target>
   </properties>
 
   <modules>
@@ -38,8 +38,8 @@
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.9</source>
+          <target>1.9</target>
         </configuration>
       </plugin>
 
